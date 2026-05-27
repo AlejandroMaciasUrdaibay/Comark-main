@@ -17,6 +17,12 @@ function figmaAssetResolver() {
 }
 
 export default defineConfig({
+  // Use relative paths so the site works when published under any path
+  base: './',
+  build: {
+    outDir: 'docs', // output to docs/ for easy GitHub Pages publishing
+    emptyOutDir: true,
+  },
   plugins: [
     figmaAssetResolver(),
     // The React and Tailwind plugins are both required for Make, even if
